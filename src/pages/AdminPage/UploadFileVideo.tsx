@@ -2,32 +2,28 @@ import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Dropdown, Space, Menu, Button } from 'antd';
-import VideoBaiGrammar from './VideoBaiGrammar';
-import VideoBaiCamBien from './VideoBaiNode';
-import VideoBaiDieuKhien from './VideoBaiGateway';
-import VideoBaiNgoaiVi from './VideoBaiCloud';
 
 const UploadFileVideo: React.FC = () => {
     const [selectedComponent, setSelectedComponent] = useState<React.ReactNode>(null);
-    const BaiGrammar = () => <div><VideoBaiGrammar /></div>;
-    const BaiCamBien = () => <div><VideoBaiCamBien /></div>;
-    const BaiDieuKhien = () => <div><VideoBaiDieuKhien /></div>
-    const BaiNgoaiVi = () => <div><VideoBaiNgoaiVi /></div>
+    // const BaiGrammar = () => <div><VideoBaiGrammar /></div>;
+    // const BaiCamBien = () => <div><VideoBaiCamBien /></div>;
+    // const BaiDieuKhien = () => <div><VideoBaiDieuKhien /></div>
+    // const BaiNgoaiVi = () => <div><VideoBaiNgoaiVi /></div>
 
     const handleMenuClick: MenuProps['onClick'] = (e) => {
         switch (e.key) {
-            case '1':
-                setSelectedComponent(<BaiGrammar />);
-                break;
-            case '2':
-                setSelectedComponent(<BaiCamBien />);
-                break;
-            case '3':
-                setSelectedComponent(<BaiDieuKhien />);
-                break;
-            case '4':
-                setSelectedComponent(<BaiNgoaiVi />);
-                break;
+            // case '1':
+            //     setSelectedComponent(<BaiGrammar />);
+            //     break;
+            // case '2':
+            //     setSelectedComponent(<BaiCamBien />);
+            //     break;
+            // case '3':
+            //     setSelectedComponent(<BaiDieuKhien />);
+            //     break;
+            // case '4':
+            //     setSelectedComponent(<BaiNgoaiVi />);
+            //     break;
         }
     };
 

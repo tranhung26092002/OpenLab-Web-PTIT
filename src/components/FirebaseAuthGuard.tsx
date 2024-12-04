@@ -9,10 +9,10 @@ interface FirebaseAuthGuardProps {
 const FirebaseAuthGuard: React.FC<FirebaseAuthGuardProps> = ({ children }) => {
     const token = settings.getStore(ACCESS_TOKEN);
 
-    if (!token) {
+    // if (!token) {
 
-        return <Navigate to="/login" />;
-    }
+    //     return <Navigate to="/login" />;
+    // }
 
     return <>{children}</>;
 };

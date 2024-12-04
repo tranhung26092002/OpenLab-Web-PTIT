@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { DownOutlined, MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined, WifiOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Layout, Menu, Space, theme } from 'antd';
-import IoT from './IoT';
 import SubMenu from 'antd/es/menu/SubMenu';
-import NodeBlockAdmin from './NodeBlockAdmin';
-import GatewayBlockAdmin from './GatewayBlockAdmin';
-import CloudBlockAdmin from './CloudBlockAdmin';
-import VideoBaiGrammar from './VideoBaiGrammar';
 import UploadFileVideo from './UploadFileVideo';
 // import styles from './Header.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -50,10 +45,6 @@ const AdminPage: React.FC = () => {
 
 
     const contentMap: { [key: string]: React.ReactNode } = {
-        IoT: <IoT />,
-        NodeBlock: <NodeBlockAdmin />,
-        GatewayBlock: <GatewayBlockAdmin />,
-        CloudBlock: <CloudBlockAdmin />,
      
         UploadVideo: <UploadFileVideo />,
         ManageUser: <UserManage />

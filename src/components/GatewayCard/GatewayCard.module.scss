@@ -1,0 +1,131 @@
+// Variables
+$primary-color: #1890ff;
+$success-color: #52c41a;
+$error-color: #ff4d4f;
+$text-primary: #2d3748;
+$text-secondary: #000000;
+$border-radius: 8px;
+
+// Breakpoints
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1600px,
+);
+
+// Mixins
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.gatewayCard {
+  @include card-hover;
+  background: #fff;
+  border-radius: $border-radius;
+  border-color: #2d3748;
+  overflow: hidden;
+
+  &.activeGateway {
+    border-top: 3px solid $success-color;
+  }
+
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+
+    .statusIndicator {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+
+        &.active {
+          background: $success-color;
+          box-shadow: 0 0 8px rgba($success-color, 0.4);
+        }
+
+        &.inactive {
+          background: $error-color;
+          box-shadow: 0 0 8px rgba($error-color, 0.4);
+        }
+      }
+    }
+
+    .expandIcon {
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #edf2f7;
+        color: $primary-color;
+      }
+    }
+  }
+
+  .cardContent {
+    padding: 1.5rem;
+
+    .gatewayName {
+      color: $text-primary;
+      margin-bottom: 1.5rem;
+
+      @include respond-to(sm) {
+        font-size: 1.25rem;
+      }
+    }
+
+    .infoGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+
+      .infoItem {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: $text-secondary;
+
+        .anticon {
+          font-size: 1.25rem;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+// Nodes Section
+.nodesSection {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+
+  .nodesList {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+}
+

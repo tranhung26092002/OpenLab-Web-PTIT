@@ -1,0 +1,36 @@
+// components/GatewayHeader/GatewayHeader.module.scss
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  .titleSection {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+
+    h2 {
+      margin: 0;
+    }
+
+    .count {
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 16px;
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 12px;
+
+    button {
+      display: flex;
+      align-items: center;
+
+      .anticon {
+        margin-right: 8px;
+      }
+    }
+  }
+}

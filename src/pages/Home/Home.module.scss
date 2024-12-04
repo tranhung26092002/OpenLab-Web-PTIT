@@ -1,3 +1,15 @@
+$primary-color: #081140;
+$secondary-color: #dc3545;
+$text-primary-color: #77838f;
+$theme-heading-font: "Gilroy", sans-serif;
+$theme-secondary-font: "Roboto", sans-serif;
+$theme-primary-color: #081140;
+$theme-secondary-color: #dc3545;
+$theme-heading-color: #081140;
+$theme-text-color: #5e6f81;
+$theme-white-color: #fff;
+$theme-border-color: #ddd;
+
 h2 {
   text-align: center;
   margin-top: 70px;
@@ -8,86 +20,139 @@ h2 {
   }
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  // height: 100vh;
-  height: calc(100vh - 100px);
-  margin-top: 100px;
-  @media (max-width: 768px) {
+.contentImage{
+  margin-top: 10px;
+  text-align: center;
+  img {
+    width: 30%;
     height: auto;
-    margin-top: 100px;
   }
 
-  .contentSection {
-    display: flex;
-    align-items: center;
-    margin-bottom: 50px;
-    @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+}
 
-    .contentText {
-      flex: 1.5;
-      font-weight: bold;
-      line-height: 3; /* Tăng khoảng cách giữa các dòng chữ */
 
-      a {
-        margin-bottom: 3px;
-        font-size: 1.5rem;
-        color: rgb(233, 63, 63);
-        text-decoration: none;
-      }
+// ----------------------------------------- Project ------------------------------------
+.project_padding {
+  background-color: #f9f9f9;
+}
 
-      @media (max-width: 768px) {
-        flex: none;
-        margin-bottom: 20px;
+.container_project {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-        a {
-          font-size: 1.2rem;
-          margin-bottom: 10px;
-        }
-      }
-    }
+.content_project {
+  text-align: center;
+  margin-bottom: 2rem;
 
-    .contentImage {
-      flex: 1;
+  .sub_heading {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
 
+  .heading {
+    font-size: 1.2rem;
+    color: #555;
+  }
+}
+
+.row_project {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.project_column {
+  flex: 1 1 calc(25% - 1rem); // Tự động chia 4 phần tử trên một hàng với khoảng cách
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Hiệu ứng nổi bóng
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-5px); // Hiệu ứng nổi lên khi hover
+  }
+
+  .project_header {
+    overflow: hidden;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+    span {
+      display: block;
+      width: 100%;
+      height: 180px; // Khung cố định cho ảnh
       img {
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit: cover; // Đảm bảo ảnh tự động fit trong khung
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+    }
+  }
+
+  .project_content {
+    padding: 1rem;
+
+    .project_title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .project_footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .project_price {
+        font-size: 1rem;
+        color: #666;
       }
 
-      @media (max-width: 768px) {
-        img {
-          width: 80%;
+      .btn {
+        background-color: #007bff;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+
+        i {
+          font-size: 1rem;
         }
       }
     }
   }
 }
 
+
+// Responsive design
+@media (max-width: 992px) {
+  .row_project {
+    justify-content: space-around; // Đảm bảo căn đều các cột khi hiển thị 2 cột
+  }
+}
+
 @media (max-width: 768px) {
-  .contentSection {
-    align-items: center;
-
-    .contentText,
-    .contentImage {
-      width: 100%;
-      text-align: center;
-
-      a {
-        display: block;
-      }
-
-      img {
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto;
-      }
-    }
+  .row_project {
+    justify-content: center; // Căn giữa các cột khi hiển thị 1 cột
   }
 }

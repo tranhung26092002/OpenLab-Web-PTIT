@@ -1,0 +1,85 @@
+// GatewayManager.module.scss
+
+// Variables
+$primary-color: #1890ff;
+$success-color: #52c41a;
+$error-color: #ff4d4f;
+$text-primary: #2d3748;
+$text-secondary: #000000;
+$border-radius: 8px;
+$spacing-unit: 8px;
+
+// Breakpoints
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1600px,
+);
+
+// Mixins
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  @include respond-to(sm) {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #ff4d4f; // Changed to red
+    margin-bottom: 24px;
+    position: relative;
+    text-align: center; // Center align text
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%; // Center the underline
+      transform: translateX(-50%); // Center the underline
+      width: 48px;
+      height: 3px;
+      background-color: #ff4d4f; // Changed underline to red
+      border-radius: 2px;
+    }
+    
+    @media (max-width: 768px) {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+// Loading state
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+// Error state
+.error {
+  text-align: center;
+  color: $error-color;
+  margin: $spacing-unit * 4 0;
+}

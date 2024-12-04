@@ -1,0 +1,88 @@
+// Variables
+$primary-color: #1890ff;
+$success-color: #52c41a;
+$error-color: #ff4d4f;
+$text-primary: #2d3748;
+$text-secondary: #000000;
+$border-radius: 8px;
+
+// Breakpoints
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1600px,
+);
+
+// Mixins
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Nodes Section
+.nodeCard {
+  @include card-hover;
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: $border-radius;
+  cursor: pointer;
+
+  .nodeInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include respond-to(xs) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .nodeMain {
+      flex: 1;
+    }
+
+    .nodeStatus {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      .statusIndicator {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+  
+        span {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+  
+          &.active {
+            background: $success-color;
+            box-shadow: 0 0 8px rgba($success-color, 0.4);
+          }
+  
+          &.inactive {
+            background: $error-color;
+            box-shadow: 0 0 8px rgba($error-color, 0.4);
+          }
+        }
+      }
+    }
+  }
+
+  .lastSeen {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+  }
+}

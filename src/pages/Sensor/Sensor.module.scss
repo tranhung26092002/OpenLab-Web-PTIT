@@ -1,0 +1,119 @@
+// Biến
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Lớp
+.header {
+  background-color: $primary-color;
+  color: white;
+  padding: 10px;
+}
+
+.footer {
+  background-color: $secondary-color;
+  color: white;
+  padding: 10px;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+.Container {
+  gap: 20px;
+  display: block;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 40px;
+  margin-right: 40px;
+  text-align: center;
+
+  .MainContainer {
+    display: block;
+    flex-direction: column;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    align-items: center;
+    text-align: center;
+
+    h3 {
+      margin: 0;
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+
+    .SensorGrid {
+      overflow-y: scroll;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+    }
+  }
+
+  .ChartContainer {
+    h3 {
+      margin: 0;
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+
+    .ChartGrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+    }
+  }
+
+  .ReportContainer {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+
+    .SubmitContainer {
+      margin-bottom: 10px;
+    }
+  }
+
+  .ChartContainer {
+    h3 {
+      margin-bottom: 10px;
+    }
+    text-align: center;
+    margin-bottom: 20px;
+  }  
+}
