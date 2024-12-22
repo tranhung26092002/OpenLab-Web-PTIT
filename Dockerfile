@@ -13,8 +13,8 @@ RUN npm install
 # Sao chép toàn bộ mã nguồn vào container
 COPY . .
 
-# Mở cổng 4000 để phục vụ ứng dụng
-EXPOSE 4000
+# Mở cổng 3001 để phục vụ ứng dụng
+EXPOSE 3001
 
 # Khởi động node
 CMD ["npm", "start"]
