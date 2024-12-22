@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  react-app:
+    build: .
+    container_name: react-app
+    ports:
+      - "4000:4000"
+    networks:
+      - app-network
+    restart: always  # Đảm bảo container tự động khởi động lại nếu có sự cố
+
+networks:
+  app-network:
+    driver: bridge

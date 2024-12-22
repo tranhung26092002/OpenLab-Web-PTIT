@@ -6,7 +6,7 @@ import axios from "axios";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import styles from "./GatewayManager.module.scss";
-import { Gateway, Node } from "../../types/Gateway";
+import { Gateway } from "../../types/Gateway";
 
 import { GatewayCard } from "../../components/GatewayCard/GatewayCard";
 import { AddGatewayModal } from "../../components/AddGatewayModal/AddGatewayModal";
@@ -28,7 +28,7 @@ const GatewayManager: React.FC = () => {
     if (showLoading) setLoading(true);
     try {
       const { data } = await axios.get<Gateway[]>(
-        "http://localhost:8081/mqtt/api/gateways"
+        "http://14.225.255.177:8083/mqtt/api/gateways"
       );
       setGateways(data);
       setError(null);
@@ -68,7 +68,7 @@ const GatewayManager: React.FC = () => {
     setSubmitting(true);
     try {
       await axios.put(
-        `http://localhost:8081/mqtt/api/gateways/${values.gatewayId}`
+        `http://14.225.255.177:8083/mqtt/api/gateways/${values.gatewayId}`
       );
 
       // Success determined by 200 status code
@@ -89,7 +89,7 @@ const GatewayManager: React.FC = () => {
   // Add handler
   const handleAddNode = async (nodeId: string) => {
     try {
-      await axios.put(`http://localhost:8081/mqtt/api/nodes/${nodeId}`, {
+      await axios.put(`http://14.225.255.177:8083/mqtt/api/nodes/${nodeId}`, {
         nodeId: nodeId,
       });
       notification.success({

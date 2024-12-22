@@ -7,7 +7,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import * as Icon from '@mui/icons-material';
 
 const MqttClient = () => {
-    const [host, setHost] = useState('192.168.137.1');
+    const [host, setHost] = useState('14.225.255.177');
     const [port, setPort] = useState('9001');
     const [clientId, setClientId] = useState('Laptop');
     const [topicSub, setTopicSub] = useState('mqtt/data/gateway');

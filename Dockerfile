@@ -1,0 +1,20 @@
+# Bước 1: Sử dụng image Node.js chính thức để build ứng dụng
+FROM node:20 AS build
+
+# Thiết lập thư mục làm việc trong container
+WORKDIR /app
+
+# Sao chép các file cấu hình của dự án (package.json và package-lock.json nếu có)
+COPY package.json package-lock.json ./
+
+# Cài đặt các phụ thuộc
+RUN npm install
+
+# Sao chép toàn bộ mã nguồn vào container
+COPY . .
+
+# Mở cổng 4000 để phục vụ ứng dụng
+EXPOSE 4000
+
+# Khởi động node
+CMD ["npm", "start"]

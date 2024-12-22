@@ -13,7 +13,7 @@ export const useSensorData = (id: string) => {
   });
 
   useEffect(() => {
-    const sock = new SockJS("http://localhost:8081/mqtt/ws");
+    const sock = new SockJS("http://14.225.255.177:8083/mqtt/ws");
     const stompClient = new Client({
       webSocketFactory: () => sock,
       debug: (str) => console.log(str),
@@ -29,6 +29,7 @@ export const useSensorData = (id: string) => {
 
       stompClient.subscribe(`/topic/sensorData/${id}`, (message) => {
         const data = JSON.parse(message.body);
+        console.log("Received sensor data", data);
         setSensorData((prev) => ({
           ...prev,
           ...data,
