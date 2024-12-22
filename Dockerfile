@@ -1,4 +1,4 @@
-# Bước 1: Sử dụng image Node.js chính thức để build ứng dụng
+# Sử dụng image Node.js chính thức để build ứng dụng
 FROM node:20 AS build
 
 # Thiết lập thư mục làm việc trong container
@@ -13,8 +13,8 @@ RUN npm install
 # Sao chép toàn bộ mã nguồn vào container
 COPY . .
 
-# Mở cổng 3001 để phục vụ ứng dụng
-EXPOSE 3001
+# Mở cổng 4000 để phục vụ ứng dụng
+EXPOSE 4000
 
-# Khởi động node
+# Khởi động ứng dụng React trên cổng 4000
 CMD ["npm", "start"]
