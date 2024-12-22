@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'react-app:latest'
+        DOCKER_IMAGE = 'react-app:latest'  // Tên image Docker
         CONTAINER_NAME = 'react-app'  // Tên container
     }
 
