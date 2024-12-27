@@ -1,0 +1,177 @@
+.headerContainer {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  .topBar {
+    padding: 8px 15px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+    text-align: right;
+
+    .userInfo {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 4px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        color: red;
+        background: #ffe6e6;
+      }
+    }
+  }
+
+  .mainHeader {
+    padding: 15px;
+    position: relative;
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+
+      img {
+        width: 120px;
+        height: auto;
+        transition: all 0.3s;
+      }
+
+      .schoolName {
+        .primaryName {
+          color: red;
+          font-weight: 600;
+          font-size: 14px;
+        }
+        .secondaryName {
+          font-size: 12px;
+          color: #666;
+          margin-top: 4px;
+        }
+      }
+    }
+
+    .mobileMenu {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      padding: 8px;
+      background: white;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      cursor: pointer;
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .redLine {
+    height: 3px;
+    background: red;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .headerContainer {
+    .mainHeader {
+      padding: 20px;
+
+      .brand {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        
+        img {
+          width: 150px;
+        }
+
+        .schoolName {
+          text-align: left;
+          
+          .primaryName {
+            font-size: 16px;
+          }
+          .secondaryName {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .headerContainer {
+    .mainHeader {
+      padding: 25px 40px;
+
+      .mobileMenu {
+        display: none;
+      }
+
+      .brand {
+        img {
+          width: 180px;
+        }
+
+        .schoolName {
+          .primaryName {
+            font-size: 18px;
+          }
+          .secondaryName {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px 0;
+      border-top: 1px solid #eee;
+
+      .navLink {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 8px 0;
+        position: relative;
+        transition: all 0.3s;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          background: red;
+          transition: all 0.3s;
+          transform: translateX(-50%);
+        }
+
+        &:hover {
+          color: red;
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

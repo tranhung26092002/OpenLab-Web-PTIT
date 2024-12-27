@@ -1,0 +1,210 @@
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$laptop: 1024px;
+
+// Base styles
+.Container {
+  width: 100%;
+  padding: 15px;
+}
+
+.MainTitle {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: #d61111;
+    margin: 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1890ff;
+  
+    @media (min-width: $tablet) {
+      font-size: 2.2rem;
+      margin: 25px 0;
+    }
+  
+    @media (min-width: $laptop) {
+      font-size: 2.5rem;
+      margin: 30px 0;
+    }
+  }
+  
+  .SectionTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin: 15px 0;
+    
+    @media (min-width: $tablet) {
+      font-size: 1.8rem;
+      margin: 20px 0;
+    }
+  
+    @media (min-width: $laptop) {
+      font-size: 2rem;
+      margin: 25px 0;
+    }
+  }
+  
+  .ContentTitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #666;
+    margin: 10px 0;
+  
+    @media (min-width: $tablet) {
+      font-size: 1.4rem;
+      margin: 15px 0;
+    }
+  
+    @media (min-width: $laptop) {
+      font-size: 1.6rem;
+      margin: 20px 0;
+    }
+  }
+  
+.StudentInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 100%;
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+  }
+
+  @media (min-width: $laptop) {
+    width: 80%;
+  }
+
+  p {
+    margin: 5px 0;
+    
+    @media (min-width: $tablet) {
+      margin: 0;
+    }
+  }
+}
+
+
+.Pagination {
+  text-align: center;
+  margin: 20px 0;
+
+  button {
+    margin: 3px;
+    padding: 5px 8px;
+    
+    @media (min-width: $tablet) {
+      margin: 0 5px;
+      padding: 5px 10px;
+    }
+  }
+}
+
+.ShowReportContainer,
+.StudentInfoContainer,
+.ReportContainer {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (min-width: $tablet) {
+    width: 90%;
+    padding: 15px;
+    margin: 15px auto;
+  }
+
+  @media (min-width: $laptop) {
+    width: 80%;
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .FormContainer {
+    width: 100%;
+    padding: 10px;
+
+    @media (min-width: $tablet) {
+      padding: 15px;
+    }
+
+    @media (min-width: $laptop) {
+      padding: 20px;
+    }
+
+    // Form layout adjustments
+    :global {
+      .ant-row {
+        margin-bottom: 10px;
+      }
+
+      .ant-col {
+        @media (max-width: $mobile) {
+          flex: 0 0 100% !important;
+          max-width: 100% !important;
+        }
+
+        @media (min-width: $mobile) and (max-width: $tablet) {
+          flex: 0 0 50% !important;
+          max-width: 50% !important;
+        }
+      }
+
+      .ant-form-item {
+        margin-bottom: 12px;
+      }
+
+      .ant-input,
+      .ant-select,
+      .ant-picker {
+        width: 100%;
+      }
+    }
+
+    .SubmitContainer {
+      margin-top: 20px;
+      
+      button {
+        width: 100%;
+        
+        @media (min-width: $tablet) {
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+// Modal responsive adjustments
+:global {
+  .ant-modal {
+    width: 90% !important;
+    
+    @media (min-width: $tablet) {
+      width: 80% !important;
+    }
+    
+    @media (min-width: $laptop) {
+      width: 800px !important;
+    }
+  }
+
+  .ant-list-item {
+    flex-wrap: wrap;
+    
+    .ant-row {
+      width: 100%;
+    }
+  }
+}

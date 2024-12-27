@@ -1,0 +1,169 @@
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$laptop: 1024px;
+
+// Biến
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin respond-to($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Lớp
+.header {
+  background-color: $primary-color;
+  color: white;
+  padding: 10px;
+}
+
+.footer {
+  background-color: $secondary-color;
+  color: white;
+  padding: 10px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  padding: 0 15px;
+
+  @include respond-to($tablet) {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  @include respond-to($laptop) {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+}
+
+.Container {
+  gap: 15px;
+  display: block;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 15px;
+  text-align: center;
+
+  @include respond-to($tablet) {
+    margin: 0 25px;
+    gap: 20px;
+  }
+
+  @include respond-to($laptop) {
+    margin: 0 40px;
+  }
+
+  .MainContainer {
+    display: block;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+
+    @include respond-to($tablet) {
+      margin-bottom: 25px;
+    }
+
+    @include respond-to($laptop) {
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      margin: 20px 0;
+      text-align: center;
+      font-size: 1.2rem;
+
+      @include respond-to($tablet) {
+        font-size: 1.4rem;
+        margin: 25px 0;
+      }
+
+      @include respond-to($laptop) {
+        font-size: 1.6rem;
+        margin: 30px 0;
+      }
+    }
+
+    .SensorGrid {
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      margin: 0 auto 20px;
+      width: 90%;
+
+      @include respond-to($tablet) {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px;
+        width: 85%;
+      }
+
+      @include respond-to($laptop) {
+        grid-template-columns: repeat(4, 1fr);
+        width: 80%;
+      }
+    }
+  }
+
+  .ChartContainer {
+    h3 {
+      margin: 20px 0;
+      text-align: center;
+      font-size: 1.2rem;
+
+      @include respond-to($tablet) {
+        font-size: 1.4rem;
+        margin: 25px 0;
+      }
+
+      @include respond-to($laptop) {
+        font-size: 1.6rem;
+        margin: 30px 0;
+      }
+    }
+
+    .ChartGrid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      margin: 0 auto 20px;
+      width: 90%;
+
+      @include respond-to($tablet) {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px;
+        width: 85%;
+      }
+
+      @include respond-to($laptop) {
+        grid-template-columns: repeat(2, 1fr);
+        width: 80%;
+      }
+    }
+  }
+}

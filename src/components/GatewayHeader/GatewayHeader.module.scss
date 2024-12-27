@@ -1,0 +1,108 @@
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px; 
+$laptop: 1024px;
+
+@mixin respond-to($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 12px;
+
+  @include respond-to($tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 16px;
+  }
+
+  @include respond-to($laptop) {
+    padding: 20px;
+    margin-bottom: 32px;
+  }
+
+  .titleSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    @include respond-to($tablet) {
+      flex-direction: row;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+
+      @include respond-to($tablet) {
+        font-size: 1.75rem;
+      }
+
+      @include respond-to($laptop) {
+        font-size: 2rem;
+      }
+    }
+
+    .count {
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 14px;
+
+      @include respond-to($tablet) {
+        font-size: 15px;
+      }
+
+      @include respond-to($laptop) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+
+    @include respond-to($tablet) {
+      flex-direction: row;
+      gap: 12px;
+      width: auto;
+    }
+
+    button {
+      width: 100%;
+      height: 36px;
+      font-size: 14px;
+
+      @include respond-to($tablet) {
+        width: auto;
+        min-width: 100px;
+      }
+
+      @include respond-to($laptop) {
+        height: 40px;
+        font-size: 15px;
+      }
+
+      .anticon {
+        margin-right: 8px;
+        font-size: 14px;
+
+        @include respond-to($laptop) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

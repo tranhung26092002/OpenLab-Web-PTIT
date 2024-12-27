@@ -1,0 +1,142 @@
+.loginPage {
+  min-height: 100vh;
+  background: #f8f9fa;
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.mainContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  
+  h1 {
+    color: #dc3545;
+    font-size: 28px;
+    font-weight: bold;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  .imageLeft, .imageRight {
+    display: none;
+  }
+
+  .loginForm {
+    width: 100%;
+    max-width: 320px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+    .formGroup {
+      margin-bottom: 15px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        
+        &:focus {
+          outline: none;
+          border-color: #dc3545;
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: #c82333;
+      }
+    }
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #dc3545;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .content {
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+
+    .imageLeft, .imageRight {
+      display: block;
+      width: 25%;
+      
+      img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      }
+    }
+
+    .loginForm {
+      width: 30%;
+      padding: 30px;
+    }
+  }
+
+  .footer {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header h1 {
+    font-size: 36px;
+  }
+
+  .content {
+    gap: 40px;
+
+    .imageLeft, .imageRight {
+      width: 30%;
+    }
+
+    .loginForm {
+      padding: 40px;
+    }
+  }
+}

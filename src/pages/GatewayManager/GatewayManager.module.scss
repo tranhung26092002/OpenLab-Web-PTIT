@@ -1,0 +1,161 @@
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$laptop: 1024px;
+
+// Variables
+$primary-color: #1890ff;
+$success-color: #52c41a;
+$error-color: #ff4d4f;
+$text-primary: #2d3748;
+$text-secondary: #000000;
+
+// Mixins
+@mixin respond-to($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+.main {
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+
+  @include respond-to($tablet) {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  @include respond-to($laptop) {
+    width: 80%;
+    max-width: 1400px;
+    padding: 2rem;
+  }
+}
+
+.title {
+  font-size: 1.5rem;
+  text-align: center;
+  color: $error-color;
+  margin: 1rem 0;
+  padding-bottom: 0.5rem;
+  position: relative;
+
+  @include respond-to($tablet) {
+    font-size: 2rem;
+    margin: 1.5rem 0;
+  }
+
+  @include respond-to($laptop) {
+    font-size: 2.5rem;
+    margin: 2rem 0;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background-color: $error-color;
+    border-radius: 2px;
+
+    @include respond-to($tablet) {
+      width: 60px;
+    }
+
+    @include respond-to($laptop) {
+      width: 80px;
+    }
+  }
+}
+
+.gatewaysGrid {
+  margin-top: 2rem;
+  
+  :global {
+    .ant-row {
+      margin: -8px !important;
+      
+      @include respond-to($tablet) {
+        margin: -12px !important;
+      }
+      
+      @include respond-to($laptop) {
+        margin: -16px !important;
+      }
+    }
+
+    .ant-col {
+      padding: 8px !important;
+      
+      @include respond-to($tablet) {
+        padding: 12px !important;
+      }
+      
+      @include respond-to($laptop) {
+        padding: 16px !important;
+      }
+    }
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+
+  @include respond-to($tablet) {
+    min-height: 300px;
+  }
+
+  @include respond-to($laptop) {
+    min-height: 400px;
+  }
+}
+
+.error {
+  text-align: center;
+  color: $error-color;
+  padding: 1rem;
+  margin: 1rem 0;
+
+  @include respond-to($tablet) {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  @include respond-to($laptop) {
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+}
+
+// Card hover effect
+@mixin card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+}
+
+:global(.ant-card) {
+  @include card-hover;
+  
+  .ant-card-head-title {
+    font-size: 1rem;
+    
+    @include respond-to($tablet) {
+      font-size: 1.1rem;
+    }
+    
+    @include respond-to($laptop) {
+      font-size: 1.2rem;
+    }
+  }
+}

@@ -1,0 +1,195 @@
+// Variables
+$primary-color: #dc3545;        // Main red
+$secondary-color: #6c757d;      // Gray
+$border-color: #dee2e6;         // Light gray border
+$hover-color: #c82333;          // Darker red for hover
+$shadow: 0px 4px 8px rgba(220, 53, 69, 0.15);  // Red-tinted shadow
+$border-radius: 10px;
+$mobile: 768px;
+$desktop: 1024px;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin card-container {
+  border: 2px solid $border-color;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  padding: 20px;
+}
+
+// Base Styles
+.dashboardTitle {
+  text-align: center;
+  color: $primary-color;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 30px 0;
+  padding: 0 20px;
+
+  @media (min-width: $mobile) {
+    font-size: 32px;
+  }
+}
+
+.Container {
+  @include card-container;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (min-width: $mobile) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: $desktop) {
+    flex-wrap: nowrap;
+  }
+
+  .LeftContainer,
+  .MidContainer,
+  .RightContainer {
+    width: 100%;
+
+    @media (min-width: $mobile) {
+      width: calc(50% - 10px);
+    }
+
+    @media (min-width: $desktop) {
+      width: calc(33.333% - 13.333px);
+    }
+
+    h3 {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 20px;
+      color: $secondary-color;
+    }
+
+    .SensorGrid {
+      @include card-container;
+      width: 100%;
+      max-width: 300px;
+      margin: 10px auto;
+    }
+  }
+}
+
+.Block {
+  @include card-container;
+  @include flex-center;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  .Info {
+    @include flex-center;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 100%;
+
+    .InputGroup {
+      text-align: center;
+      margin: 10px 0;
+
+      .inputValue {
+        width: 60px;
+        text-align: center;
+        padding: 5px;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.KeyPadContainer {
+  @include card-container;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+
+  .Screen {
+    width: 100%;
+    padding: 10px;
+    text-align: right;
+    font-size: 18px;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .KeyPad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+
+    button {
+      padding: 15px;
+      font-size: 18px;
+      border: 1px solid #7a7a7a;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      color: black;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #e0e0e0;
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+.ConnectionBlock {
+  @include card-container;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+
+  .InputContainer {
+    margin-bottom: 10px;
+    
+    label {
+      margin-right: 10px;
+    }
+
+    .Input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+    }
+  }
+
+  .ConnectionButton {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    color: white;
+    background-color: $primary-color;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:disabled {
+      background-color: $secondary-color;
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $hover-color;
+    }
+  }
+}

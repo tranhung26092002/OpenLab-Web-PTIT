@@ -1,0 +1,165 @@
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$laptop: 1024px;
+
+// Colors
+$primary-color: #1890ff;
+$success-color: #52c41a;
+$error-color: #ff4d4f;
+$text-primary: #2d3748;
+$text-secondary: #000000;
+$border-radius: 8px;
+
+@mixin respond-to($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+.nodeCard {
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  @include respond-to($tablet) {
+    padding: 16px;
+  }
+  
+  @include respond-to($laptop) {
+    padding: 20px;
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .nodeInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    @include respond-to($tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nodeMain {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      
+      @include respond-to($tablet) {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      strong {
+        font-size: 14px;
+        
+        @include respond-to($tablet) {
+          font-size: 15px;
+        }
+        
+        @include respond-to($laptop) {
+          font-size: 16px;
+        }
+      }
+
+      .nodeId {
+        font-size: 12px;
+        
+        @include respond-to($tablet) {
+          font-size: 13px;
+        }
+        
+        @include respond-to($laptop) {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .nodeStatus {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      
+      @include respond-to($tablet) {
+        width: auto;
+        gap: 15px;
+      }
+
+      .statusIndicator {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        
+        @include respond-to($tablet) {
+          font-size: 13px;
+          gap: 10px;
+        }
+        
+        @include respond-to($laptop) {
+          font-size: 14px;
+        }
+
+        span {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          
+          @include respond-to($tablet) {
+            width: 10px;
+            height: 10px;
+          }
+
+          &.active {
+            background: $success-color;
+            box-shadow: 0 0 8px rgba($success-color, 0.4);
+          }
+
+          &.inactive {
+            background: $error-color;
+            box-shadow: 0 0 8px rgba($error-color, 0.4);
+          }
+        }
+      }
+
+      .nodeArrow {
+        font-size: 14px;
+        color: $primary-color;
+        
+        @include respond-to($tablet) {
+          font-size: 16px;
+        }
+        
+        @include respond-to($laptop) {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .lastSeen {
+    margin-top: 8px;
+    font-size: 11px;
+    
+    @include respond-to($tablet) {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    
+    @include respond-to($laptop) {
+      margin-top: 12px;
+      font-size: 13px;
+    }
+  }
+}

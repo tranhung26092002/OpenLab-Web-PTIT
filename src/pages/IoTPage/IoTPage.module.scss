@@ -1,0 +1,133 @@
+.iotPage {
+    background: #f8f9fa;
+    min-height: 100vh;
+  
+    .mainContent {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+  
+    .heroSection {
+      text-align: center;
+      margin: 20px 0 40px;
+  
+      h1 {
+        color: #e93f3f;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+  
+      .mainImage {
+        img {
+          width: 100%;
+          max-width: 450px;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+      }
+    }
+  
+    .projectsSection {
+      text-align: center;
+      
+      h2 {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+  
+      p {
+        color: #666;
+        margin-bottom: 30px;
+      }
+  
+      .projectsGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+  
+        .projectCard {
+          background: white;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          transition: transform 0.3s;
+  
+          &:hover {
+            transform: translateY(-5px);
+          }
+  
+          .imageWrapper {
+            img {
+              width: 100%;
+              height: 200px;
+              object-fit: cover;
+            }
+          }
+  
+          .content {
+            padding: 20px;
+  
+            h3 {
+              font-size: 16px;
+              margin-bottom: 15px;
+              color: #333;
+            }
+  
+            button {
+              width: 100%;
+              padding: 10px;
+              background: #e93f3f;
+              color: white;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+              transition: background-color 0.3s;
+  
+              &:hover {
+                background-color: #d63030;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .iotPage {
+      .heroSection {
+        h1 {
+          font-size: 32px;
+        }
+      }
+  
+      .projectsSection {
+        .projectsGrid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .iotPage {
+      .mainContent {
+        padding: 40px;
+      }
+      
+      .heroSection {
+        h1 {
+          font-size: 40px;
+        }
+      }
+  
+      .projectsSection {
+        .projectsGrid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    }
+  }
